@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Pedidos Express" />
+    <meta property="og:description" content="Compra y venta de productos para el hogar con entrega rápida en Satélite Norte" />
+    <meta property="og:url" content="images/producto/logo.jpeg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:author" content="Pedidos Express" />
+    <meta property="og:site_name" content="Pedidos Express" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:site" content="@pedidosexpress" />
+    <meta property="twitter:title" content="Pedidos Express" />
+    <meta property="twitter:description" content="Compra y venta de productos para el hogar con entrega rápida en Satélite Norte" />
+    <link rel="shortcut icon" href="images/producto/logo.jpeg" type="/producto/logo.jpeg" />
+    <link rel="apple-touch-icon" sizes="10x10" href="images/producto/logo.jpeg" type="image/png" />
+    
+    <title>Pedidos Express - Tu hogar, nuestro compromiso</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+    <!-- QR Code -->
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav id="navbar" class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-content">
+                <!-- Logo -->
+                <div class="navbar-logo">
+                    <img src="images/producto/logo.jpeg" alt="Pedidos Express" class="logo-img">
+                    <span class="logo-text">Pedidos Express</span>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="nav-links desktop-nav">
+                    <a href="#hero" class="nav-link">Inicio</a>
+                    <a href="#categories" class="nav-link">Categorías</a>
+                    <a href="#products" class="nav-link">Productos</a>
+                    <a href="#offers" class="nav-link">Ofertas</a>
+                    <a href="#contact" class="nav-link">Contacto</a>
+                </div>
+
+                <!-- Right Icons -->
+                <div class="navbar-actions">
+                    <!-- Search -->
+                    <button id="searchBtn" class="action-btn">
+                        <i class="fas fa-search"></i>
+                    </button>
+
+                    <!-- Cart -->
+                    <button id="cartBtn" class="action-btn cart-btn">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span id="cartCount" class="cart-count hidden">0</span>
+                    </button>
+
+                    <!-- User Menu -->
+                    <div class="user-menu">
+                        <button id="userBtn" class="action-btn user-btn">
+                            <i class="fas fa-user"></i>
+                        </button>
+                        <div id="userDropdown" class="user-dropdown hidden">
+                            <div class="user-info">
+                                <span id="userName">Usuario</span>
+                                <span id="userEmail">usuario@email.com</span>
+                            </div>
+                            <div class="user-actions">
+                                <button id="loginBtn" class="user-action">
+                                    <i class="fas fa-sign-in-alt"></i>
+                                    Iniciar Sesión
+                                </button>
+                                <button id="logoutBtn" class="user-action hidden">
+                                    <i class="fas fa-sign-out-alt"></i>
+                                    Cerrar Sesión
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Mobile Menu Button -->
+                    <button id="mobileMenuBtn" class="action-btn mobile-menu-btn">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Navigation -->
+            <div id="mobileNav" class="mobile-nav hidden">
+                <div class="mobile-nav-content">
+                    <a href="#hero" class="mobile-nav-link">Inicio</a>
+                    <a href="#categories" class="mobile-nav-link">Categorías</a>
+                    <a href="#products" class="mobile-nav-link">Productos</a>
+                    <a href="#offers" class="mobile-nav-link">Ofertas</a>
+                    <a href="#contact" class="mobile-nav-link">Contacto</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="hero-bg">
+            <div class="hero-circle hero-circle-1"></div>
+            <div class="hero-circle hero-circle-2"></div>
+            <div class="hero-circle hero-circle-3"></div>
+        </div>
+
+        <div class="hero-content">
+            <div class="hero-icon">
+                <i class="fas fa-shopping-bag"></i>
+            </div>
+
+            <h1 class="hero-title">
+                <span class="hero-brand">Pedidos Express</span>
+                <br>
+                <span class="hero-subtitle">Tu hogar, nuestro compromiso</span>
+            </h1>
+
+            <p class="hero-description">
+                Los mejores productos para el hogar con
+                <span class="highlight">entrega rápida</span>
+                en Satélite Norte
+            </p>
+
+            <div class="hero-features">
+                <div class="hero-feature">
+                    <i class="fas fa-bolt"></i>
+                    <span>Entrega en minutos</span>
+                </div>
+                <div class="hero-feature">
+                    <i class="fas fa-heart"></i>
+                    <span>Productos de calidad</span>
+                </div>
+                <div class="hero-feature">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span>Precios competitivos</span>
+                </div>
+            </div>
+
+            <div class="hero-actions">
+                <button class="btn btn-primary" onclick="scrollToSection('#categories')">
+                    <i class="fas fa-shopping-bag"></i>
+                    Comprar Ahora
+                </button>
+                
+                <button class="btn btn-secondary" onclick="scrollToSection('#offers')">
+                    🔥 Ver Ofertas Especiales
+                </button>
+            </div>
+
+            <div class="hero-stats">
+                <div class="stat">
+                    <div class="stat-number">60+</div>
+                    <div class="stat-label">Productos</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Atención</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">1000+</div>
+                    <div class="stat-label">Clientes</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">⭐ 4.9</div>
+                    <div class="stat-label">Calificación</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="scroll-indicator">
+            <div class="scroll-indicator-box">
+                <div class="scroll-indicator-dot"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section id="categories" class="categories">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="gradient-text">Categorías</span>
+                </h2>
+                <p class="section-description">
+                    Explora nuestras diferentes categorías de productos para el hogar
+                </p>
+            </div>
+
+            <div id="categoriesGrid" class="categories-grid">
+                <!-- Categories will be rendered by JavaScript -->
+            </div>
+
+            <div class="categories-all">
+                <button id="allCategoriesBtn" class="btn btn-outline">
+                    Ver todas las categorías
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="products">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="gradient-text">Productos</span>
+                </h2>
+                <p id="productsDescription" class="section-description">
+                    Descubre nuestra amplia selección de productos para el hogar
+                </p>
+                <p id="productsCount" class="section-count hidden"></p>
+            </div>
+
+            <div id="productsGrid" class="products-grid">
+                <!-- Products will be rendered by JavaScript -->
+            </div>
+
+            <div id="noProducts" class="no-products hidden">
+                <div class="no-products-icon">🔍</div>
+                <h3 class="no-products-title">No se encontraron productos</h3>
+                <p class="no-products-text">Intenta con otros términos de búsqueda o explora nuestras categorías</p>
+            </div>
+
+            <div id="loadingProducts" class="loading-products">
+                <div class="loading-grid">
+                    <!-- Loading skeletons will be rendered by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Offers Section -->
+    <section id="offers" class="offers">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-icon">
+                    <i class="fas fa-fire"></i>
+                </div>
+                <h2 class="section-title">
+                    <span class="gradient-text-warm">Ofertas Especiales</span>
+                </h2>
+                <p class="section-description">
+                    ¡Aprovecha nuestras mejores ofertas por tiempo limitado!
+                </p>
+            </div>
+
+            <div id="offersGrid" class="offers-grid">
+                <!-- Offers will be rendered by JavaScript -->
+            </div>
+
+            <div class="offers-newsletter">
+                <div class="newsletter-bg">
+                    <div class="newsletter-circle newsletter-circle-1"></div>
+                    <div class="newsletter-circle newsletter-circle-2"></div>
+                    <div class="newsletter-circle newsletter-circle-3"></div>
+                </div>
+                
+                <div class="newsletter-content">
+                    <h3 class="newsletter-title">🎉 ¡Suscríbete y Ahorra!</h3>
+                    <p class="newsletter-description">
+                        Recibe ofertas exclusivas y descuentos especiales en tu email
+                    </p>
+                    <div class="newsletter-form">
+                        <input type="email" id="newsletterEmail" placeholder="Tu email aquí..." class="newsletter-input">
+                        <button id="newsletterBtn" class="newsletter-button">Suscribirse</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="contact-bg">
+            <div class="contact-circle contact-circle-1"></div>
+            <div class="contact-circle contact-circle-2"></div>
+        </div>
+
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="gradient-text">Contáctanos</span>
+                </h2>
+                <p class="section-description">
+                    ¿Necesitas ayuda? Estamos aquí para atenderte las 24 horas del día
+                </p>
+            </div>
+
+            <div class="contact-content">
+                <!-- Contact Information -->
+                <div class="contact-info">
+                    <h3 class="contact-info-title">Información de Contacto</h3>
+                    
+                    <div class="contact-items">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4 class="contact-title">Dirección</h4>
+                                <p>Av. Principal Satélite Norte</p>
+                                <p>Local #45, Santa Cruz</p>
+                                <p>Bolivia</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4 class="contact-title">Teléfonos</h4>
+                                <p>+591 64452730</p>
+                                <p>+591 75997557</p>
+                                <p>Ventas y soporte</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4 class="contact-title">Horarios</h4>
+                                <p>Lunes a Domingo</p>
+                                <p>7:00 AM - 10:00 PM</p>
+                                <p>Entrega 24/7</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button id="whatsappBtn" class="whatsapp-btn">
+                        <i class="fab fa-whatsapp"></i>
+                        Chatear por WhatsApp
+                    </button>
+                </div>
+
+                <!-- Social Media & Quick Contact -->
+                <div class="contact-form-section">
+                    <h3 class="contact-form-title">Síguenos en Redes Sociales</h3>
+
+                    <div class="social-links">
+                        <a href="https://whatsapp.com/dl/code=4UIpsoPG8i?mode=tac" target="_blank" class="social-link whatsapp">
+                            <i class="fab fa-whatsapp"></i>
+                            <h4>WhatsApp</h4>
+                            <p>Chatea con nosotros</p>
+                        </a>
+                        <a href="https://www.facebook.com/share/1FSAgUWqnv/" target="_blank" class="social-link facebook">
+                            <i class="fab fa-facebook"></i>
+                            <h4>Facebook</h4>
+                            <p>@PedidosExpressBolivia</p>
+                        </a>
+                        <a href="https://www.instagram.com/pedidosexpress2?igsh=Y3E0aTVteWZ1aA==" target="_blank" class="social-link instagram">
+                            <i class="fab fa-instagram"></i>
+                            <h4>Instagram</h4>
+                            <p>@pedidosexpress_bo</p>
+                        </a>
+                        <a href="https://www.tiktok.com/@pedidosexpress4?is_from_webapp=1&sender_device=pc" target="_blank" class="social-link tiktok">
+                            <i class="fab fa-tiktok"></i>
+                            <h4>TikTok</h4>
+                            <p>@pedidosexpress_bo</p>
+                        </a>
+                    </div>
+
+                    <!-- Quick Contact Form -->
+                    <div class="quick-contact">
+                        <h4 class="quick-contact-title">Envíanos un Mensaje Rápido</h4>
+                        
+                        <form id="contactForm" class="contact-form">
+                            <div class="form-group">
+                                <label>Nombre *</label>
+                                <input type="text" id="contactName" placeholder="Tu nombre completo" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Email *</label>
+                                <input type="email" id="contactEmail" placeholder="tu@email.com" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Mensaje *</label>
+                                <textarea id="contactMessage" rows="4" placeholder="¿En qué podemos ayudarte?" required></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
+                        </form>
+                    </div>
+
+                    <!-- Business Hours -->
+                    <div class="business-hours">
+                        <h4 class="business-hours-title">
+                            <i class="fas fa-clock"></i>
+                            Horarios de Atención
+                        </h4>
+                        <div class="hours-grid">
+                            <div class="hours-item">
+                                <p class="hours-day">Lunes - Viernes</p>
+                                <p class="hours-time">8:00 AM - 10:00 PM</p>
+                            </div>
+                            <div class="hours-item">
+                                <p class="hours-day">Sábados - Domingos</p>
+                                <p class="hours-time">9:00 AM - 9:00 PM</p>
+                            </div>
+                        </div>
+                        <p class="delivery-note">🚚 Entregas disponibles 24/7</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <!-- Company Info -->
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <div class="footer-logo-icon">
+                            <i class="fas fa-shopping-bag"></i>
+                        </div>
+                        <span class="footer-logo-text">Pedidos Express</span>
+                    </div>
+                    <p class="footer-description">
+                        Tu tienda de confianza para productos del hogar. Calidad garantizada, 
+                        precios competitivos y entrega rápida en Satélite Norte.
+                    </p>
+                    <div class="footer-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Santa Cruz, Bolivia
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="footer-section">
+                    <h3 class="footer-title">Enlaces Rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="#hero">Inicio</a></li>
+                        <li><a href="#categories">Categorías</a></li>
+                        <li><a href="#products">Productos</a></li>
+                        <li><a href="#offers">Ofertas</a></li>
+                        <li><a href="#contact">Contacto</a></li>
+                    </ul>
+                </div>
+
+                <!-- Categories -->
+                <div class="footer-section">
+                    <h3 class="footer-title">Categorías</h3>
+                    <ul class="footer-links">
+                        <li><a href="#products" onclick="filterByCategory('electrodomesticos')">Electrodomésticos</a></li>
+                        <li><a href="#products" onclick="filterByCategory('ropa')">Ropa</a></li>
+                        <li><a href="#products" onclick="filterByCategory('viveres')">Víveres</a></li>
+                        <li><a href="#products" onclick="filterByCategory('limpieza')">Productos de Limpieza</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="footer-section">
+                    <h3 class="footer-title">Contacto</h3>
+                    <div class="footer-contact">
+                        <div class="footer-contact-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <p>+591 64452730</p>
+                                <small>Whatsapp disponible</small>
+                            </div>
+                        </div>
+                        <div class="footer-contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <p>info@pedidosexpress.com</p>
+                                <small>Atención 24/7</small>
+                            </div>
+                        </div>
+                        <div class="footer-contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <p>Av. Principal Satélite Norte</p>
+                                <p>Local #44</p>
+                                <small>Santa Cruz, Bolivia</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-content">
+                    <div class="footer-copyright">
+                        <span>© <span id="currentYear"></span> Pedidos Express. Todos los derechos reservados.</span>
+                    </div>
+                    
+                    <div class="footer-love">
+                        <span>Hecho con</span>
+                        <i class="fas fa-heart"></i>
+                        <span>para nuestra comunidad</span>
+                    </div>
+                </div>
+                
+                <div class="footer-links-bottom">
+                    <button>Términos y Condiciones</button>
+                    <button>Política de Privacidad</button>
+                    <button>Política de Devoluciones</button>
+                    <button>Preguntas Frecuentes</button>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Search Modal -->
+    <div id="searchModal" class="modal hidden">
+        <div class="modal-content search-modal-content">
+            <div class="search-modal-header">
+                <div class="search-input-container">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" id="searchInput" placeholder="🔍 Buscar productos..." autocomplete="off">
+                </div>
+                <button id="closeSearchModal" class="modal-close-btn">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <div id="searchResults" class="search-results hidden"></div>
+
+            <div id="searchEmpty" class="search-empty">
+                <i class="fas fa-search search-empty-icon"></i>
+                <p>Ingresa al menos 3 caracteres para buscar</p>
+            </div>
+
+            <div id="searchNoResults" class="search-empty hidden">
+                <i class="fas fa-search search-empty-icon"></i>
+                <p>No se encontraron productos</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Modal -->
+    <div id="cartModal" class="modal hidden">
+        <div class="modal-content cart-modal-content">
+            <div class="cart-modal-header">
+                <div class="cart-modal-title">
+                    <i class="fas fa-shopping-bag"></i>
+                    <h2>Carrito de Compras</h2>
+                </div>
+                <button id="closeCartModal" class="modal-close-btn">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <div class="cart-modal-body">
+                <div id="cartItems" class="cart-items"></div>
+
+                <div id="cartEmpty" class="cart-empty">
+                    <i class="fas fa-shopping-bag cart-empty-icon"></i>
+                    <h3 class="cart-empty-title">Tu carrito está vacío</h3>
+                    <p class="cart-empty-text">Agrega algunos productos para comenzar</p>
+                </div>
+            </div>
+
+            <div id="cartFooter" class="cart-modal-footer hidden">
+                <div class="cart-total">
+                    <span class="cart-total-label">Total:</span>
+                    <span id="cartTotalAmount" class="cart-total-amount">Bs 0.00</span>
+                </div>
+                <div class="cart-actions">
+                    <button id="clearCartBtn" class="btn btn-outline-danger">Vaciar Carrito</button>
+                    <button id="checkoutBtn" class="btn btn-primary">Proceder a Pagar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div id="checkoutModal" class="modal hidden">
+        <div class="modal-content checkout-modal-content">
+            <div class="checkout-modal-header">
+                <div class="checkout-modal-title">
+                    <i class="fas fa-credit-card"></i>
+                    <h2>Finalizar Compra</h2>
+                </div>
+                <button id="closeCheckoutModal" class="modal-close-btn">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <form id="checkoutForm" class="checkout-form">
+                <div class="checkout-content">
+                    <!-- Customer Information -->
+                    <div class="checkout-section">
+                        <h3 class="checkout-section-title">Información del Cliente</h3>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label>Nombre Completo </label>
+                                <input type="text" id="customerName" placeholder="Tu nombre completo" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Correo Electrónico </label>
+                                <input type="email" id="customerEmail" placeholder="tu@email.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Teléfono </label>
+                                <input type="tel" id="customerPhone" placeholder="+591 76543210" required>
+                            </div>
+                            <div class="form-group form-group-full">
+                                <label>Dirección de Entrega </label>
+                                <textarea id="customerAddress" rows="3" placeholder="Dirección completa para la entrega" required></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Payment Methods -->
+                    <div class="checkout-section">
+                        <h3 class="checkout-section-title">Método de Pago</h3>
+                        <div class="payment-methods">
+                            <div class="payment-method active" data-method="whatsapp">
+                                <div class="payment-method-icon whatsapp">
+                                    <i class="fab fa-whatsapp"></i>
+                                </div>
+                                <div class="payment-method-info">
+                                    <div class="payment-method-name">Pago por WhatsApp</div>
+                                    <div class="payment-method-desc">Coordina el pago directamente por WhatsApp</div>
+                                </div>
+                                <div class="payment-method-radio">
+                                    <div class="radio-btn active"></div>
+                                </div>
+                            </div>
+
+                            <div class="payment-method" data-method="tigo_money">
+                                <div class="payment-method-icon tigo">
+                                    <i class="fas fa-mobile-alt"></i>
+                                </div>
+                                <div class="payment-method-info">
+                                    <div class="payment-method-name">Tigo Money</div>
+                                    <div class="payment-method-desc">Transferencia a través de Tigo Money</div>
+                                </div>
+                                <div class="payment-method-radio">
+                                    <div class="radio-btn"></div>
+                                </div>
+                            </div>
+
+                            <div class="payment-method" data-method="qr">
+                                <div class="payment-method-icon qr">
+                                    <i class="fas fa-qrcode"></i>
+                                </div>
+                                <div class="payment-method-info">
+                                    <div class="payment-method-name">Código QR</div>
+                                    <div class="payment-method-desc">Escanea el código QR para pagar</div>
+                                </div>
+                                <div class="payment-method-radio">
+                                    <div class="radio-btn"></div>
+                                </div>
+                            </div>
+
+                            <div class="payment-method" data-method="efectivo">
+                                <div class="payment-method-icon efectivo">
+                                    <i class="fas fa-money-bill-wave"></i>
+                                </div>
+                                <div class="payment-method-info">
+                                    <div class="payment-method-name">Efectivo</div>
+                                    <div class="payment-method-desc">Pago en efectivo contra entrega</div>
+                                </div>
+                                <div class="payment-method-radio">
+                                    <div class="radio-btn"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Payment Info Sections -->
+                        <div id="qrPayment" class="payment-info hidden">
+                            <p class="payment-info-text">Escanea este código QR para realizar el pago</p>
+                            <div class="qr-code-container">
+                                <canvas id="qrCanvas"></canvas>
+                            </div>
+                            <p id="qrAmount" class="qr-amount">Total: Bs 0.00</p>
+                        </div>
+
+                        <div id="tigoPayment" class="payment-info hidden">
+                            <h4 class="payment-info-title">Datos para Tigo Money</h4>
+                            <div class="tigo-info">
+                                <p><strong>Número:</strong> 76543210</p>
+                                <p><strong>Nombre:</strong> Pedidos Express</p>
+                                <p><strong>Monto:</strong> <span id="tigoAmount">Bs 0.00</span></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Receipt and Invoice Options -->
+                    <div class="checkout-section">
+                        <h3 class="checkout-section-title">Comprobante y Factura</h3>
+                        <div class="receipt-options">
+                            <div class="receipt-option">
+                                <label class="checkbox-container">
+                                    <input type="checkbox" id="receiptRequired" checked disabled>
+                                    <span class="checkmark"></span>
+                                    <div class="receipt-info">
+                                        <div class="receipt-name">Comprobante de Compra</div>
+                                        <div class="receipt-desc">Se genera automáticamente con cada pedido</div>
+                                    </div>
+                                </label>
+                            </div>
+                            
+                            <div class="receipt-option">
+                                <label class="checkbox-container">
+                                    <input type="checkbox" id="invoiceRequired">
+                                    <span class="checkmark"></span>
+                                    <div class="receipt-info">
+                                        <div class="receipt-name">Factura Fiscal</div>
+                                        <div class="receipt-desc">Factura con NIT para empresas</div>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div id="invoiceFields" class="invoice-fields hidden">
+                            <div class="form-group">
+                                <label>NIT / CI *</label>
+                                <input type="text" id="customerNIT" placeholder="Número de NIT o CI">
+                            </div>
+                            <div class="form-group">
+                                <label>Razón Social / Nombre Completo *</label>
+                                <input type="text" id="customerBusinessName" placeholder="Nombre de la empresa o persona">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Order Summary -->
+                <div class="checkout-summary">
+                    <h3 class="checkout-summary-title">Resumen del Pedido</h3>
+                    <div id="checkoutItems" class="checkout-items"></div>
+                    <div class="checkout-total">
+                        <span class="checkout-total-label">Total:</span>
+                        <span id="checkoutTotalAmount" class="checkout-total-amount">Bs 0.00</span>
+                    </div>
+
+                    <div class="checkout-actions">
+                        <button type="button" id="cancelCheckout" class="btn btn-outline">Cancelar</button>
+                        <button type="submit" id="confirmOrder" class="btn btn-primary">
+                            <span class="btn-text">Confirmar Pedido</span>
+                            <span class="btn-loading hidden">Procesando...</span>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Receipt Modal -->
+    <div id="receiptModal" class="modal hidden">
+        <div class="modal-content receipt-modal-content">
+            <div class="receipt-modal-header">
+                <div class="receipt-modal-title">
+                    <i class="fas fa-receipt"></i>
+                    <h2>Comprobante de Compra</h2>
+                </div>
+                <button id="closeReceiptModal" class="modal-close-btn">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <div class="receipt-content">
+                <div id="receiptContent">
+                    <!-- Receipt content will be generated here -->
+                </div>
+            </div>
+
+            <div class="receipt-actions">
+                <button id="printReceipt" class="btn btn-outline">
+                    <i class="fas fa-print"></i>
+                    Imprimir
+                </button>
+                <button id="downloadReceipt" class="btn btn-primary">
+                    <i class="fas fa-download"></i>
+                    Descargar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="js/products.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

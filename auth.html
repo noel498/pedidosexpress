@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedidos Express - Iniciar Sesión</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/auth.css">
+</head>
+<body>
+    <div class="auth-container">
+        <!-- Background Elements -->
+        <div class="auth-bg">
+            <div class="auth-circle auth-circle-1"></div>
+            <div class="auth-circle auth-circle-2"></div>
+            <div class="auth-circle auth-circle-3"></div>
+        </div>
+
+        <!-- Logo Section -->
+        <div class="auth-logo">
+            <div class="logo-icon">
+                <i class="fas fa-shopping-bag"></i>
+            </div>
+            <h1 class="logo-text">Pedidos Express</h1>
+            <p class="logo-subtitle">Tu hogar, nuestro compromiso</p>
+        </div>
+
+        <!-- Auth Form Container -->
+        <div class="auth-form-container">
+            <!-- Toggle Buttons -->
+            <div class="auth-toggle">
+                <button id="loginTab" class="toggle-btn active">Iniciar Sesión</button>
+                <button id="registerTab" class="toggle-btn">Registrarse</button>
+            </div>
+
+            <!-- Login Form -->
+            <form id="loginForm" class="auth-form active">
+                <div class="form-header">
+                    <h2>¡Bienvenido de vuelta!</h2>
+                    <p>Inicia sesión para continuar con tus pedidos</p>
+                </div>
+
+                <div class="form-group">
+                    <label for="loginEmail">Correo Electrónico *</label>
+                    <div class="input-container">
+                        <i class="fas fa-envelope input-icon"></i>
+                        <input type="email" id="loginEmail" placeholder="tu@email.com" required>
+                    </div>
+                    <div class="error-message" id="loginEmailError"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="loginPassword">Contraseña *</label>
+                    <div class="input-container">
+                        <i class="fas fa-lock input-icon"></i>
+                        <input type="password" id="loginPassword" placeholder="Tu contraseña" required>
+                        <button type="button" class="password-toggle" onclick="togglePassword('loginPassword')">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                    <div class="error-message" id="loginPasswordError"></div>
+                </div>
+
+                <div class="form-options">
+                    <label class="checkbox-container">
+                        <input type="checkbox" id="rememberMe">
+                        <span class="checkmark"></span>
+                        Recordarme
+                    </label>
+                    <a href="#" class="forgot-password">¿Olvidaste tu contraseña?</a>
+                </div>
+
+                <button type="submit" class="auth-btn">
+                    <span class="btn-text">Iniciar Sesión</span>
+                    <span class="btn-loading hidden">
+                        <i class="fas fa-spinner fa-spin"></i>
+                        Iniciando...
+                    </span>
+                </button>
+            </form>
+
+            <!-- Register Form -->
+            <form id="registerForm" class="auth-form">
+                <div class="form-header">
+                    <h2>¡Únete a Pedidos Express!</h2>
+                    <p>Crea tu cuenta para comenzar a comprar</p>
+                </div>
+
+                <div class="form-group">
+                    <label for="registerName">Nombre Completo *</label>
+                    <div class="input-container">
+                        <i class="fas fa-user input-icon"></i>
+                        <input type="text" id="registerName" placeholder="Tu nombre completo" required>
+                    </div>
+                    <div class="error-message" id="registerNameError"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="registerEmail">Correo Electrónico *</label>
+                    <div class="input-container">
+                        <i class="fas fa-envelope input-icon"></i>
+                        <input type="email" id="registerEmail" placeholder="tu@email.com" required>
+                    </div>
+                    <div class="error-message" id="registerEmailError"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="registerPassword">Contraseña *</label>
+                    <div class="input-container">
+                        <i class="fas fa-lock input-icon"></i>
+                        <input type="password" id="registerPassword" placeholder="Mínimo 8 caracteres" required>
+                        <button type="button" class="password-toggle" onclick="togglePassword('registerPassword')">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                    <div class="error-message" id="registerPasswordError"></div>
+                    <div class="password-requirements">
+                        <div class="requirement" id="req-length">
+                            <i class="fas fa-times"></i>
+                            Mínimo 8 caracteres
+                        </div>
+                        <div class="requirement" id="req-lowercase">
+                            <i class="fas fa-times"></i>
+                            Una minúscula
+                        </div>
+                        <div class="requirement" id="req-uppercase">
+                            <i class="fas fa-times"></i>
+                            Una mayúscula
+                        </div>
+                        <div class="requirement" id="req-number">
+                            <i class="fas fa-times"></i>
+                            Un número
+                        </div>
+                        <div class="requirement" id="req-symbol">
+                            <i class="fas fa-times"></i>
+                            Un símbolo
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirmPassword">Confirmar Contraseña *</label>
+                    <div class="input-container">
+                        <i class="fas fa-lock input-icon"></i>
+                        <input type="password" id="confirmPassword" placeholder="Repite tu contraseña" required>
+                        <button type="button" class="password-toggle" onclick="togglePassword('confirmPassword')">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                    <div class="error-message" id="confirmPasswordError"></div>
+                </div>
+
+                <div class="form-options">
+                    <label class="checkbox-container">
+                        <input type="checkbox" id="acceptTerms" required>
+                        <span class="checkmark"></span>
+                        Acepto los <a href="#" class="terms-link">términos y condiciones</a> *
+                    </label>
+                </div>
+
+                <button type="submit" class="auth-btn">
+                    <span class="btn-text">Crear Cuenta</span>
+                    <span class="btn-loading hidden">
+                        <i class="fas fa-spinner fa-spin"></i>
+                        Creando...
+                    </span>
+                </button>
+            </form>
+
+            <!-- Demo Account Info -->
+            <div class="demo-info">
+                <h3>Cuenta de Demostración</h3>
+                <p>Para probar la aplicación, puedes usar:</p>
+                <div class="demo-credentials">
+                    <p><strong>Email:</strong> pedidosexpress.com</p>
+                    <p><strong>Contraseña:</strong> Pedidos@123</p>
+                </div>
+                <button class="demo-btn" onclick="fillDemoCredentials()">Usar Cuenta Demo</button>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="auth-footer">
+            <p>&copy; 2024 Pedidos Express. Todos los derechos reservados.</p>
+            <p>Satélite Norte, Santa Cruz, Bolivia</p>
+        </div>
+
+        <!-- Return to Home -->
+        <div class="return-home">
+            <a href="index.html" class="return-btn">
+                <i class="fas fa-arrow-left"></i>
+                Volver al Inicio
+            </a>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="js/auth.js"></script>
+</body>
+</html>
